@@ -21,7 +21,11 @@ document.querySelector(".next").addEventListener("click", function(){
     if ( activeIndex < imgItem.length - 1) {
         imgItem[activeIndex].classList.remove("active");
         activeIndex++;
-        imgItem[activeIndex].classList.add("active")
+        imgItem[activeIndex].classList.add("active");
+    } else {
+        imgItem[activeIndex].classList.remove("active");
+        activeIndex = 0;
+        imgItem[activeIndex].classList.add("active");
     }
 })
 
@@ -29,6 +33,10 @@ document.querySelector(".prev").addEventListener("click", function(){
     if ( activeIndex > 0) {
         imgItem[activeIndex].classList.remove("active");
         activeIndex--;
-        imgItem[activeIndex].classList.add("active")
+        imgItem[activeIndex].classList.add("active");
+    } else {
+        imgItem[activeIndex].classList.remove("active");
+        activeIndex = imgItem.length - 1;
+        imgItem[activeIndex].classList.add("active");
     }
 })

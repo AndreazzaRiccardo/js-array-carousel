@@ -1,5 +1,5 @@
 
-const images = ["./img/01.jpg", "./img/02.jpg", "./img/03.jpg", "./img/04.jpg",];
+const images  = ["./img/01.jpg", "./img/02.jpg", "./img/03.jpg", "./img/04.jpg",];
 const imgCont = document.querySelector(".items");
 
 let stringImg = "";
@@ -18,25 +18,27 @@ let activeIndex = 0;
 imgItem[activeIndex].classList.add("active");
 
 document.querySelector(".next").addEventListener("click", function(){
+    
+    imgItem[activeIndex].classList.remove("active");
+
     if ( activeIndex < imgItem.length - 1) {
-        imgItem[activeIndex].classList.remove("active");
-        activeIndex++;
-        imgItem[activeIndex].classList.add("active");
+        activeIndex++; 
     } else {
-        imgItem[activeIndex].classList.remove("active");
         activeIndex = 0;
-        imgItem[activeIndex].classList.add("active");
     }
+
+    imgItem[activeIndex].classList.add("active");
 })
 
 document.querySelector(".prev").addEventListener("click", function(){
+
+    imgItem[activeIndex].classList.remove("active");
+
     if ( activeIndex > 0) {
-        imgItem[activeIndex].classList.remove("active");
         activeIndex--;
-        imgItem[activeIndex].classList.add("active");
     } else {
-        imgItem[activeIndex].classList.remove("active");
-        activeIndex = imgItem.length - 1;
-        imgItem[activeIndex].classList.add("active");
+        activeIndex = imgItem.length - 1;  
     }
+
+    imgItem[activeIndex].classList.add("active");
 })

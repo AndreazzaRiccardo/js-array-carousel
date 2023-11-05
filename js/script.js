@@ -42,3 +42,40 @@ document.querySelector(".prev").addEventListener("click", function(){
 
     imgItem[activeIndex].classList.add("active");
 })
+
+// INTERVAL CAROUSEL
+
+let myInterval = setInterval(() => {
+    imgItem[activeIndex].classList.remove("active");
+
+    if ( activeIndex < imgItem.length - 1) {
+        activeIndex++; 
+    } else {
+        activeIndex = 0;
+    }
+
+    imgItem[activeIndex].classList.add("active");
+}, 2000);
+
+imgCont.addEventListener("mouseover", function(){
+    clearInterval(myInterval)
+})
+
+imgCont.addEventListener("mouseout", function(){
+    myInterval = setInterval(() => {
+        imgItem[activeIndex].classList.remove("active");
+    
+        if ( activeIndex < imgItem.length - 1) {
+            activeIndex++; 
+        } else {
+            activeIndex = 0;
+        }
+    
+        imgItem[activeIndex].classList.add("active");
+    }, 2000);
+})
+
+
+
+
+
